@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>The Legend of Wiam — A Short Interactive Quest</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="bg-stars" id="bg"></div>
+  <audio id="bgMusic" src="files/Harvest Dawn.mp3" loop></audio>
+
+  <div class="wrap">
+    <header>
+      <img src="files/images.jpg" alt="Wiam Logo" class="logo">
+      <div>
+        <h1>The Legend of Wiam</h1>
+        <div class="sub">A little interactive quest — made by Reda ❤️</div>
+      </div>
+    </header>
+
+    <main class="scene">
+      <div class="card" id="card">
+        <div class="text" id="text">Loading...</div>
+        <div class="choices" id="choices" aria-live="polite"></div>
+        <div class="controls">
+          <div class="row">
+            <button class="ghost" id="saveBtn">Save</button>
+            <button class="ghost" id="restartBtn">Restart</button>
+          </div>
+          <div style="display:flex;align-items:center;flex:1;">
+            <div class="small">Progress</div>
+            <div class="progress"><div class="bar" id="bar"></div></div>
+          </div>
+        </div>
+      </div>
+      <footer>
+        <div class="tiny">Tip: big choices change the ending — be brave.</div>
+        <div class="row">
+          <button class="ghost" id="soundToggle">Sound: Off</button>
+          <button class="ghost" id="aboutBtn">About</button>
+        </div>
+      </footer>
+    </main>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

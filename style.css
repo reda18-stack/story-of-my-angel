@@ -1,0 +1,97 @@
+:root{
+  --bg1:#0f1724; --bg2:#0b1220; --accent:#10090b; --soft:#f6f8ff;
+}
+
+*{box-sizing:border-box; font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,"Helvetica Neue",Arial;}
+html,body{height:100%; margin:0; background: linear-gradient(180deg,var(--bg1),#061323); color:var(--soft); -webkit-font-smoothing:antialiased;}
+
+.wrap{max-width:920px; margin:0 auto; padding:18px; display:flex; flex-direction:column; min-height:100vh;}
+header{display:flex; align-items:center; gap:12px;}
+.logo{width:56px;height:56px;border-radius:12px;background:linear-gradient(135deg,#ff8fbf,#6be3ff);display:flex;align-items:center;justify-content:center;font-weight:800;color:#082233;}
+h1{font-size:18px;margin:0;}
+.sub{opacity:0.8;font-size:13px;margin-top:4px;}
+.scene{flex:1; display:flex; flex-direction:column; justify-content:center; gap:12px; margin-top:18px;}
+.card{background:linear-gradient(180deg, rgba(255,255,255,0.03), rgba(255,255,255,0.02)); border-radius:14px; padding:18px; box-shadow: 0 8px 30px rgba(2,6,23,0.6); min-height:260px; transition: transform 0.2s ease;}
+.text{font-size:16px; line-height:1.45; white-space:pre-wrap; min-height:120px;}
+.choices{display:flex; flex-direction:column; gap:10px; margin-top:12px;}
+
+/* ===== ANIMATED BUTTONS ===== */
+.btn, .ghost {
+  background: rgba(255,255,255,0.05);
+  border: 2px solid rgba(255,255,255,0.1);
+  padding: 12px 14px;
+  border-radius: 10px;
+  color: var(--soft);
+  font-weight: 600;
+  font-size: 15px;
+  text-align: left;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.btn:hover, .ghost:hover {
+  background: rgba(255,255,255,0.12);
+  border-color: rgba(255,255,255,0.2);
+  transform: scale(1.05);
+  box-shadow: 0 0 15px rgba(255, 107, 154, 0.5);
+}
+
+.btn:active, .ghost:active {
+  transform: scale(0.97);
+  box-shadow: 0 0 8px rgba(255, 107, 154, 0.7) inset;
+}
+
+.btn::after, .ghost::after {
+  content: "";
+  position: absolute;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle, rgba(255,107,154,0.2) 0%, transparent 70%);
+  top: -50%;
+  left: -50%;
+  border-radius: 50%;
+  transform: scale(0);
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  pointer-events: none;
+}
+
+.btn:active::after, .ghost:active::after {
+  transform: scale(1);
+  opacity: 0;
+}
+
+.controls{display:flex; gap:8px; margin-top:10px; align-items:center; justify-content:space-between;}
+.small{opacity:0.8; font-size:13px;}
+.progress{height:8px; background:rgba(255,255,255,0.04); border-radius:99px; overflow:hidden; flex:1; margin-left:12px;}
+.bar{height:100%; background:linear-gradient(90deg,var(--accent),#e0129f); width:0%;}
+footer{display:flex; gap:8px; align-items:center; justify-content:space-between; margin-top:16px;}
+.tiny{font-size:12px; opacity:0.7;}
+.row{display:flex; gap:8px;}
+.ghost{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:8px 12px;border-radius:8px;font-size:13px;text-align:center;}
+
+/* responsive */
+@media (max-width:520px){
+  .card{padding:14px;}
+  .text{font-size:15px;}
+  .logo{width:48px;height:48px;}
+}
+
+/* animated background stars */
+.bg-stars{position:fixed;inset:0;pointer-events:none;z-index:-1;background:
+  radial-gradient(ellipse at 10% 20%, rgba(255,255,255,0.02) 0, transparent 20%),
+  radial-gradient(ellipse at 80% 60%, rgba(255,255,255,0.02) 0, transparent 20%),
+  radial-gradient(ellipse at 50% 10%, rgba(255,255,255,0.03) 0, transparent 12%);
+}
+.twinkle{position:absolute; width:6px;height:6px;border-radius:50%; background:rgba(255,255,255,0.9); opacity:0.0; animation: tw 3s linear infinite;}
+@keyframes tw{0%{opacity:0; transform:scale(.6)}50%{opacity:1; transform:scale(1.1)}100%{opacity:0; transform:scale(.6)}}
+
+/* typewriter caret */
+.caret{display:inline-block;width:9px;height:18px;background:var(--soft);margin-left:4px;opacity:0.9;animation:blink 1s steps(1) infinite;}
+@keyframes blink{50%{opacity:0}}
+
+/* end screen */
+.ending{display:flex;flex-direction:column;gap:8px;align-items:center;justify-content:center;padding:12px;}
+.big{font-size:20px;font-weight:700;color:var(--accent);}
+.note{font-size:15px;background:rgba(255,255,255,0.02);padding:10px;border-radius:10px;text-align:center;}
